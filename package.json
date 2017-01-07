@@ -1,0 +1,26 @@
+{
+  "name": "sanborn",
+  "version": "1.0.0",
+  "description": "app to view sanborn web maps",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mappingvermont/sanborn-vt.git"
+  },
+  "keywords": [
+    "sanborn",
+    "map"
+  ],
+  "author": "Charlie Hofmann",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mappingvermont/sanborn-vt/issues"
+  },
+  "homepage": "https://github.com/mappingvermont/sanborn-vt#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
