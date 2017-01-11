@@ -20,7 +20,7 @@ function initializeTabletopObject(dataSpreadsheet) {
     	    var map = new L.Map('map', {
         center: new L.LatLng(44.260144, -72.574553),
         zoom: 18,
-        minZoom: 8,
+        minZoom: 7,
         maxZoom: 21,
         layers: [HERE_satelliteDay, BFSanborn]
     });
@@ -69,7 +69,7 @@ function initializeTabletopObject(dataSpreadsheet) {
 
     var BFSanborn = new L.tileLayer('http://mapping-vt-tiles.s3.amazonaws.com/sanborn/{z}/{x}/{y}.png', {
   attribution: '<a href="http://www.loc.gov/rr/geogmap/sanborn/city.php?CITY=Montpelier&stateID=52" target="_blank">Library of Congress</a>',
-      minZoom: 15,
+      minZoom: 8,
       maxZoom: 21
 });
 
