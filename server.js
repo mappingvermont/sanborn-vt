@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var app     = express();
-var port    = 	process.env.PORT || 8080;
+var port    = 	process.env.PORT || 8081;
 
 // so express can find our stuff
 app.use("/js",  express.static(__dirname + '/js'));
@@ -15,24 +15,24 @@ app.use("/css", express.static(__dirname + '/css'));
 // get an instance of router
 var router = express.Router();
 
-// home page route (http://localhost:8080)
+// home page route (http://localhost:8081)
 router.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 router.get('/bellows-falls', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
-	res.redirect('/#18/43.133752/-72.444082');
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#18/43.133752/-72.444082');
 });
 
 router.get('/saxtons-river', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
-	res.redirect('/#18/43.138568/-72.507736');
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#18/43.138568/-72.507736');
 });
 
 router.get('/montpelier', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
-	res.redirect('/#18/44.26014/-72.57455');
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#18/44.26014/-72.57455');
 });
 
 router.get('*', function(req, res) {
