@@ -30,6 +30,17 @@ router.get('/saxtons-river', function(req, res) {
 	res.redirect('http://www.mappingvermont.org/projects/sanborn/#18/43.138568/-72.507736');
 });
 
+router.get('/lyndon', function(req, res) {
+	res.sendFile(path.join(__dirname + '/index.html'))
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#16/44.5367/-71.9984');
+});
+
+router.get('/lyndonville', function(req, res) {
+	res.sendFile(path.join(__dirname + '/index.html'))
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#16/44.5367/-71.9984');
+});
+
+
 router.get('/montpelier', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
 	res.redirect('http://www.mappingvermont.org/projects/sanborn/#18/44.26014/-72.57455');
