@@ -32,12 +32,12 @@ router.get('/saxtons-river', function(req, res) {
 
 router.get('/lyndon', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
-	res.redirect('http://www.mappingvermont.org/projects/sanborn/#16/44.5367/-71.9984');
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#17/44.53531/-72.00116');
 });
 
 router.get('/lyndonville', function(req, res) {
 	res.sendFile(path.join(__dirname + '/index.html'))
-	res.redirect('http://www.mappingvermont.org/projects/sanborn/#16/44.5367/-71.9984');
+	res.redirect('http://www.mappingvermont.org/projects/sanborn/#17/44.53531/-72.00116');
 });
 
 
