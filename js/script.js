@@ -18,12 +18,15 @@ function initializeTabletopObject(dataSpreadsheet) {
 
     function startUpLeafet(tabletopData) {
     	    var map = new L.Map('map', {
-        center: new L.LatLng(44.260144, -72.574553),
-        zoom: 18,
+        center: new L.LatLng(44.044167, -71.993408),
+        zoom: 8,
         minZoom: 7,
         maxZoom: 21,
         layers: [HERE_satelliteDay, BFSanborn]
     });
+
+        // include marker clustering
+        var markers = L.markerClusterGroup({disableClusteringAtZoom: 15});
 
         // Tabletop creates arrays out of our data
         // We'll loop through them and create markers for each
@@ -35,11 +38,11 @@ function initializeTabletopObject(dataSpreadsheet) {
             var imageDescription = tabletopData[num].imagedescripton;
 
             // Pull in our lat, long information
-            var dataLat = tabletopData[num].latitude;
-            var dataLong = tabletopData[num].longitude;
+            var dataLat = parseFloat(tabletopData[num].latitude);
+            var dataLong = parseFloat(tabletopData[num].longitude);
 
             // Add to our marker
-            marker_location = new L.LatLng(dataLat, dataLong);
+            marker_location = new L.latLng(dataLat, dataLong);
 
             // Create the marker
             layer = new L.Marker(marker_location);
@@ -48,7 +51,7 @@ function initializeTabletopObject(dataSpreadsheet) {
             var divNode = document.createElement('DIV' + num);
             var popup = "<div class='popup_box_header'><strong>" + name + "</strong></div>";
             popup += "<hr />";
-            popup += "<img style='height:auto; width:auto; max-width:300px; max-height:300px;' src=" + imageLink + ">";
+            popup += "<img style='height:auto; width:auto; max-width:500px; max-height:500px;' src=" + imageLink + ">";
             popup += "<hr />" + imageDescription;
 
             // Add to our marker
@@ -60,8 +63,12 @@ function initializeTabletopObject(dataSpreadsheet) {
             });
 
             // Add marker to our to map
-            map.addLayer(layer);
+            // map.addLayer(layer)
+            markers.addLayer(layer)
+            console.log('added')
         }
+
+        map.addLayer(markers);
 
         // initialize leaflet-hash
         var hash = new L.Hash(map);
@@ -72,8 +79,6 @@ function initializeTabletopObject(dataSpreadsheet) {
       minZoom: 8,
       maxZoom: 21
 });
-
-
 
     var HERE_satelliteDay = L.tileLayer('http://{s}.{base}.maps.cit.api.here.com/maptile/2.1/maptile/{mapID}/satellite.day/{z}/{x}/{y}/256/png8?app_id={app_id}&app_code={app_code}', {
         attribution: 'Map &copy; 1987-2014 <a href="http://developer.here.com" target="_blank">HERE</a>',

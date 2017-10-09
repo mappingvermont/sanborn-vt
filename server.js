@@ -51,6 +51,11 @@ router.get('/springfield', function(req, res) {
        res.redirect('http://www.mappingvermont.org/projects/sanborn/#18/43.29851/-72.48165');
 });
 
+router.get('/burlington', function(req, res) {
+       res.sendFile(path.join(__dirname + '/index.html'))
+       res.redirect('http://www.mappingvermont.org/projects/sanborn/#15/44.4761/-73.2050');
+});
+
 router.get('*', function(req, res) {
 	res.redirect('/');
 });
